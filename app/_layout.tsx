@@ -1,18 +1,17 @@
 import { primaryColor } from "@/lib/colors";
 import { FontAwesome } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
-import { StatusBar } from "expo-status-bar";
 
 export default function RootLayout() {
 
   const iconSize = 24;
 
-  return <Tabs screenOptions={{tabBarActiveTintColor: primaryColor}}>
+  return <Tabs screenOptions={{headerShown: false, tabBarActiveTintColor: primaryColor}}>
     <Tabs.Screen
       name="index"
       options={{
         title: "Mapa",
-        tabBarIcon: ({color}) => <FontAwesome size={iconSize} name="home" color={color} />
+        tabBarIcon: ({color}) => <FontAwesome size={iconSize} name="map" color={color} />
       }}
     />
     <Tabs.Screen
