@@ -13,7 +13,7 @@ export default function Parques () {
     return (
         <View>
             {parques.map(parque => (
-                <Card name={parque.name} favorite={parque.favorite} distance={parque.distance} />
+                <Card key={parque.name} name={parque.name} favorite={parque.favorite} distance={parque.distance} />
             ))}
         </View>
     )
