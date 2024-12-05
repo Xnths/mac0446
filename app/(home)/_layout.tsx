@@ -52,15 +52,6 @@ export default function RootLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="favoritos"
-        options={{
-          title: "Favoritos",
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={iconSize} name="heart" color={color} />
-          ),
-        }}
-      />
     </Tabs>
   );
 }

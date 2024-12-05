@@ -11,10 +11,7 @@ interface CardProps {
 export const Card = ({name, favorite, distance}: CardProps) => {
     return (
         <View style={styles.containerCard}>
-            <View style={styles.containerText}>
-                <Text style={styles.title}>{name}</Text>
-                <FontAwesome size={28} name="heart" color={favorite ? primaryColor : "#FFFFFF"} />
-            </View>
+            <Text style={styles.title}>{name}</Text>
             <View style={styles.containerDistance}>
                 <Text style={styles.distance}>{distance}</Text>
                 <Text style={styles.distance}>KM</Text>
@@ -34,13 +31,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#D9D9D9",
         padding: 24,
         borderRadius: 24
-    },
-    containerText: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: 16
-    },
+    },  
     containerDistance: {
         display: "flex",
         flexDirection: "column",
