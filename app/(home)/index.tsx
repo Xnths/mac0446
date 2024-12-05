@@ -1,6 +1,7 @@
 import { primaryColor } from "@/lib/colors";
 import { FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
@@ -61,7 +62,7 @@ export default function Index() {
                 visibility: "off"
               }
             ]
-          }
+          },
         ]}
       >
         {showSoccer && soccerMarkers.map((marker) => (

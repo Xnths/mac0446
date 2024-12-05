@@ -38,6 +38,12 @@
         {
         "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
         }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "The app needs to access your calendar."
+        }
       ]
     ],
     "experiments": {
