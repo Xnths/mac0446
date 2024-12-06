@@ -1,26 +1,76 @@
 import { primaryColor } from "@/lib/colors";
 import { FontAwesome } from "@expo/vector-icons";
-import { Pressable, StyleSheet } from "react-native";
+import { Link } from "expo-router";
+import { Pressable, ScrollView, StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 
 export default function Agenda () {
+    const events = [
+        {
+            title: "Futebol",
+            target: "criança",
+            time: "18:00",
+            date: "24/11"
+        },
+        {
+            title: "Aula de dança",
+            target: "adolescentes",
+            time: "15:00",
+            date: "25/11"
+        },
+        {
+            title: "Workshop culinário",
+            target: "adultos",
+            time: "10:00",
+            date: "26/11"
+        },
+        {
+            title: "Palestra",
+            target: "todos",
+            time: "14:00",
+            date: "27/11"
+        },
+        {
+            title: "Yoga ao ar livre",
+            target: "adultos",
+            time: "07:00",
+            date: "28/11"
+        }
+    ];
+
     return (
         <View style={styles.container}>
-            <Pressable style={styles.button}>
+            <Link href="/calendar" style={styles.button}>
                 <FontAwesome size={16} name="plus" color="white" />
                 <Text style={styles.newText}>Novo evento</Text>
-            </Pressable>
+            </Link>
             <Text style={styles.sectionTitle}>Eventos</Text>
-            <View>
-                <View style={styles.containerCard}>
-                <View style={styles.containerDistance}>
-                        <Text style={styles.title}>Futebol</Text>
-                        <Text style={styles.description}>Publico Álvo: criança</Text>
-                    </View>
-                    <View style={styles.containerDistance}>
-                        <Text style={styles.distance}>18:00</Text>
-                    </View>
-                </View>
+            <View style={styles.containerDistance}>
+                {events.map((event, index) => (
+                    <EventCard 
+                        key={index} 
+                        title={event.title} 
+                        target={event.target} 
+                        time={event.time} 
+                        date={event.date} 
+                    />
+                ))}
+            </View>
+        </View>
+    );
+}
+
+
+const EventCard = ({ title, target, time, date }: { title: string, target: string, time: string, date: string }) => {
+    return (
+        <View style={styles.containerCard}>
+            <View style={styles.containerDistance}>
+                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.description}>Publico Álvo: {target}</Text>
+            </View>
+            <View style={styles.containerDistance}>
+                <Text style={styles.distance}>{date}</Text>
+                <Text style={styles.distance}>{time}</Text>
             </View>
         </View>
     )
@@ -65,7 +115,8 @@ const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        alignItems: "flex-start"
+        alignItems: "flex-start",
+        gap: 4,
     },
     title: {
         fontSize: 24,
