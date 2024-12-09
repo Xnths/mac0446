@@ -38,7 +38,10 @@ export default function Index() {
         <Pressable onPress={() => navigation.goBack()} style={styles.button}>
           <FontAwesome size={24} name="arrow-left" color="black" />
         </Pressable>
-        <Text style={styles.title}>Novo evento</Text>
+        <View>
+          <Text style={styles.title}>Novo evento</Text>
+          <Text style={styles.subtitle} >em Parque Villa Lobos</Text>
+        </View>
       </View>
 
       {/* Formulário */}
@@ -97,6 +100,10 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 24,
+    marginLeft: 8,
+  },
+  subtitle: {
+    fontSize: 20,
     marginLeft: 8,
   },
   button: {
